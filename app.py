@@ -86,7 +86,7 @@ html.dark-theme {
    공통 레이아웃
    ================================================================ */
 [data-testid="stToolbar"] > div > div:last-child { display: none !important; }
-.block-container { padding-top: 1rem !important; padding-bottom: 0 !important; }
+.block-container { padding-top: 0 !important; padding-bottom: 0 !important; }
 
 /* sticky 탭을 위한 overflow 해제 (stMain은 스크롤 컨테이너이므로 제외) */
 [data-testid="stMainBlockContainer"],
@@ -107,10 +107,7 @@ html.dark-theme [data-testid="stAppViewContainer"] {
     background-color: var(--bg-primary) !important;
 }
 header[data-testid="stHeader"] {
-    background: var(--bg-secondary) !important;
-}
-html.dark-theme header[data-testid="stHeader"] {
-    background: var(--bg-primary) !important;
+    display: none !important;
 }
 
 /* 텍스트 컬러 */
@@ -181,10 +178,11 @@ html.dark-theme .filter-card {
 .stTabs [data-baseweb="tab-list"] {
     gap: 0.35rem !important;
     background: var(--bg-card) !important;
-    border-radius: var(--radius) !important;
-    padding: 0.3rem !important;
-    border: 1px solid var(--border) !important;
-    box-shadow: var(--shadow-md) !important;
+    border-radius: 0 !important;
+    padding: 0.35rem 0.5rem !important;
+    border: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06) !important;
     position: sticky !important;
     top: 0 !important;
     z-index: 999 !important;
