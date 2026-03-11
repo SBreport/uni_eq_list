@@ -88,6 +88,14 @@ html.dark-theme {
 [data-testid="stToolbar"] > div > div:last-child { display: none !important; }
 .block-container { padding-top: 1rem !important; padding-bottom: 0 !important; }
 
+/* sticky 탭을 위한 overflow 해제 */
+[data-testid="stMain"],
+[data-testid="stMainBlockContainer"],
+[data-testid="stVerticalBlockBorderWrapper"],
+.main .block-container {
+    overflow: visible !important;
+}
+
 /* ================================================================
    페이지 배경 + 텍스트
    ================================================================ */
@@ -127,22 +135,25 @@ section[data-testid="stSidebar"] > div {
     border-right: 1px solid var(--border) !important;
 }
 
-/* 사이드바 브랜드 카드 */
+/* 사이드바 브랜드 */
 .sidebar-brand {
-    background: linear-gradient(135deg, #2563EB, #1D4ED8);
-    color: white !important;
-    padding: 1.25rem 1rem;
-    border-radius: var(--radius);
-    margin-bottom: 1rem;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+    padding: 0.5rem 0 0.75rem 0;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent);
 }
-html.dark-theme .sidebar-brand {
-    background: linear-gradient(135deg, #3B82F6, #2563EB);
-    box-shadow: 0 4px 12px rgba(59,130,246,0.3);
+.sidebar-brand h3 {
+    color: var(--text-primary) !important;
+    font-size: 1.1rem !important;
+    margin: 0 !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
 }
-.sidebar-brand h3 { color: white !important; font-size: 1.15rem !important; margin: 0 !important; font-weight: 700 !important; }
-.sidebar-brand p { color: rgba(255,255,255,0.85) !important; font-size: 0.8rem !important; margin: 0.25rem 0 0 0 !important; }
+.sidebar-brand p {
+    color: var(--text-muted) !important;
+    font-size: 0.75rem !important;
+    margin: 0.15rem 0 0 0 !important;
+    font-weight: 400 !important;
+}
 
 /* 사이드바 필터 그룹 카드 */
 .filter-card {
@@ -174,7 +185,13 @@ html.dark-theme .filter-card {
     border-radius: var(--radius) !important;
     padding: 0.3rem !important;
     border: 1px solid var(--border) !important;
-    box-shadow: var(--shadow-sm) !important;
+    box-shadow: var(--shadow-md) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+}
+html.dark-theme .stTabs [data-baseweb="tab-list"] {
+    background: var(--bg-card) !important;
 }
 .stTabs [data-baseweb="tab"] {
     border-radius: var(--radius-sm) !important;
@@ -418,14 +435,13 @@ with st.sidebar:
     # 브랜드 섹션
     st.markdown("""
     <div class="sidebar-brand">
-        <div style="font-size:1.5rem; margin-bottom:0.2rem;">🏥</div>
         <h3>유앤아이의원</h3>
-        <p>보유장비 관리 시스템</p>
+        <p>장비 관리 시스템</p>
     </div>
     """, unsafe_allow_html=True)
 
     # 지점 선택
-    st.markdown('<div class="filter-label">📍 지점 선택</div>', unsafe_allow_html=True)
+    st.markdown('<div class="filter-label">지점 선택</div>', unsafe_allow_html=True)
     selected_branches = st.multiselect(
         "지점 선택",
         options=all_branches,
@@ -442,7 +458,7 @@ with st.sidebar:
 
     all_categories = sorted(df["카테고리"].unique()) if len(df) > 0 else []
 
-    st.markdown('<div class="filter-label">📂 카테고리</div>', unsafe_allow_html=True)
+    st.markdown('<div class="filter-label">카테고리</div>', unsafe_allow_html=True)
     selected_categories = st.multiselect(
         "카테고리 선택",
         options=all_categories,
@@ -451,14 +467,14 @@ with st.sidebar:
         label_visibility="collapsed",
     )
 
-    st.markdown('<div class="filter-label">🔍 장비 검색</div>', unsafe_allow_html=True)
+    st.markdown('<div class="filter-label">장비 검색</div>', unsafe_allow_html=True)
     search_query = st.text_input("장비 검색", placeholder="장비명 입력", label_visibility="collapsed")
 
-    st.markdown('<div class="filter-label">📷 사진 필터</div>', unsafe_allow_html=True)
+    st.markdown('<div class="filter-label">사진 필터</div>', unsafe_allow_html=True)
     photo_filter = st.radio(
         "사진 필터",
         options=["전체", "사진 없음만", "사진 있음만"],
-        horizontal=True,
+        horizontal=False,
         label_visibility="collapsed",
     )
 
@@ -466,14 +482,14 @@ with st.sidebar:
 
     st.markdown("<div style='height:0.3rem'></div>", unsafe_allow_html=True)
 
-    if st.button("🔄  새로고침", use_container_width=True,
+    if st.button("새로고침", use_container_width=True,
                   help="화면 데이터를 최신 상태로 갱신합니다"):
         load_data.clear()
         st.session_state.pop("pending_photo_changes", None)
         st.rerun()
 
     if permissions["can_sync"]:
-        if st.button("⚡  전체 동기화", use_container_width=True,
+        if st.button("전체 동기화", use_container_width=True,
                       help="모든 지점의 원본 데이터를 다시 불러와 통합합니다"):
             with st.spinner("전체 데이터 동기화 중..."):
                 regen_ok, regen_msg = regenerate_braw()
