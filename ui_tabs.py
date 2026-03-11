@@ -13,6 +13,27 @@ from users import (
 
 
 # ============================================================
+# KPI 카드 헬퍼
+# ============================================================
+def _kpi_card(icon, label, value, color="var(--accent)"):
+    """아이콘 + 라벨 + 대형 숫자 + 좌측 컬러 보더 카드"""
+    return f"""
+    <div style="background:var(--bg-card); border:1px solid var(--border);
+                border-left:4px solid {color}; border-radius:var(--radius, 10px);
+                padding:1rem 1.25rem; box-shadow:var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.05));
+                transition:all 0.2s ease; height:100%;">
+        <div style="display:flex;align-items:center;gap:0.4rem;margin-bottom:0.3rem;">
+            <span style="font-size:1.15rem;">{icon}</span>
+            <span style="font-size:0.72rem;font-weight:600;text-transform:uppercase;
+                         letter-spacing:0.04em;color:var(--text-muted, #94A3B8);">{label}</span>
+        </div>
+        <div style="font-size:1.65rem;font-weight:700;color:var(--text-primary, #1E293B);line-height:1.2;">
+            {value}
+        </div>
+    </div>"""
+
+
+# ============================================================
 # 탭 1: 장비 목록 / 사진 관리
 # ============================================================
 def render_tab_equipment_list(filtered_df, df, selected_branches, permissions):
@@ -87,7 +108,7 @@ def render_tab_equipment_list(filtered_df, df, selected_branches, permissions):
 
     # 헤더 가운데 정렬 + 셀 컴팩트 CSS + 다크모드 (html.dark-theme 스코프)
     custom_css = {
-        # ── 공통 (라이트 모드) ──
+        # ── 공통 ──
         ".ag-center-header": {"text-align": "center !important"},
         ".ag-header-cell-label": {"justify-content": "center"},
         ".ag-cell": {"padding": "0 6px !important", "line-height": "28px !important"},
@@ -95,24 +116,31 @@ def render_tab_equipment_list(filtered_df, df, selected_branches, permissions):
         ".ag-row": {"font-size": "13px"},
         ".ag-cell-wrapper": {"justify-content": "center"},
         ".ag-checkbox-input-wrapper": {"margin": "0 auto"},
+        # ── 라이트 모드 개선 ──
+        ".ag-header": {"background-color": "#F8FAFC !important", "border-bottom": "2px solid #2563EB !important"},
+        ".ag-header-cell": {"background-color": "#F8FAFC !important", "color": "#1E293B !important",
+                            "padding": "0 6px !important", "font-weight": "600 !important"},
+        ".ag-row-odd": {"background-color": "#FAFBFC !important"},
+        ".ag-row-hover": {"background-color": "#EFF6FF !important"},
+        ".ag-root-wrapper": {"border": "1px solid #E2E8F0 !important", "border-radius": "8px !important"},
         # ── 다크 모드 (JS가 iframe :root에 .dark-theme 추가 시 활성) ──
         ":root.dark-theme .ag-cell": {
             "color": "#E0E0E0 !important", "border-color": "#2A2A4A !important",
         },
+        ":root.dark-theme .ag-header": {"background-color": "#1E293B !important", "border-bottom": "2px solid #3B82F6 !important"},
         ":root.dark-theme .ag-header-cell": {
-            "background-color": "#262640 !important", "color": "#FAFAFA !important",
+            "background-color": "#1E293B !important", "color": "#F1F5F9 !important",
         },
-        ":root.dark-theme .ag-header-cell-label": {"color": "#FAFAFA !important"},
+        ":root.dark-theme .ag-header-cell-label": {"color": "#F1F5F9 !important"},
         ":root.dark-theme .ag-row": {
-            "background-color": "#1A1A2E !important", "color": "#E0E0E0 !important",
+            "background-color": "#0F172A !important", "color": "#E0E0E0 !important",
         },
         ":root.dark-theme .ag-root-wrapper": {
-            "background-color": "#1A1A2E !important", "border-color": "#3A3A5A !important",
+            "background-color": "#0F172A !important", "border-color": "#334155 !important",
         },
-        ":root.dark-theme .ag-header": {"background-color": "#262640 !important"},
-        ":root.dark-theme .ag-row-odd": {"background-color": "#1F1F35 !important"},
-        ":root.dark-theme .ag-row-hover": {"background-color": "#2A2A4E !important"},
-        ":root.dark-theme .ag-body-viewport": {"background-color": "#1A1A2E !important"},
+        ":root.dark-theme .ag-row-odd": {"background-color": "#1E293B !important"},
+        ":root.dark-theme .ag-row-hover": {"background-color": "#1E3A5F !important"},
+        ":root.dark-theme .ag-body-viewport": {"background-color": "#0F172A !important"},
     }
 
     # AG-Grid 렌더링
@@ -183,7 +211,7 @@ def render_tab_equipment_list(filtered_df, df, selected_branches, permissions):
 
     # 사진 현황 요약
     if selected_branches:
-        st.markdown(f"**사진 현황 요약** · {len(selected_branches)}개 지점")
+        st.markdown(f"**📷 사진 현황 요약** · {len(selected_branches)}개 지점")
         photo_summary = (
             filtered_df.groupby(["지점명", "사진유무"])
             .size()
@@ -203,10 +231,25 @@ def render_tab_equipment_list(filtered_df, df, selected_branches, permissions):
             row = photo_summary[photo_summary["지점명"] == branch]
             if len(row) > 0:
                 row = row.iloc[0]
+                pct = row["보유율"]
+                bar_color = "var(--success, #059669)" if pct >= 80 else ("var(--warning, #D97706)" if pct >= 50 else "var(--danger, #DC2626)")
                 with cols[i % len(cols)]:
-                    st.markdown(f"**{branch}**")
-                    st.progress(row["보유율"] / 100)
-                    st.caption(f"있음 {int(row['있음'])} / 없음 {int(row['없음'])} ({row['보유율']}%)")
+                    st.markdown(f"""
+                    <div style="background:var(--bg-card, #fff); border:1px solid var(--border, #E2E8F0);
+                                border-radius:var(--radius-sm, 6px); padding:0.75rem; margin-bottom:0.5rem;
+                                box-shadow:var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.05));">
+                        <div style="font-weight:600; font-size:0.875rem; color:var(--text-primary, #1E293B); margin-bottom:0.4rem;">
+                            {branch}
+                        </div>
+                        <div style="background:var(--border, #E2E8F0); border-radius:4px; height:6px; overflow:hidden;">
+                            <div style="background:{bar_color}; height:100%; width:{pct}%; border-radius:4px;
+                                        transition:width 0.5s ease;"></div>
+                        </div>
+                        <div style="font-size:0.72rem; color:var(--text-muted, #94A3B8); margin-top:0.3rem;">
+                            있음 {int(row['있음'])} / 없음 {int(row['없음'])} ({pct}%)
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
 
 
 # ============================================================
@@ -246,11 +289,15 @@ def render_tab_search(filtered_df, df):
     else:
         group_df = filtered_df[filtered_df["장비그룹"] == selected_group]
 
-        col_a, col_b, col_c = st.columns(3)
-        col_a.metric("보유 지점 수", f"{group_df['지점명'].nunique()}")
-        col_b.metric("총 수량", f"{int(group_df['수량'].sum())}")
         has = len(group_df[group_df["사진유무"] == "있음"])
-        col_c.metric("사진 보유율", f"{has}/{len(group_df)}")
+        col_a, col_b, col_c = st.columns(3)
+        with col_a:
+            st.markdown(_kpi_card("🏢", "보유 지점 수", f"{group_df['지점명'].nunique()}", "var(--accent, #2563EB)"), unsafe_allow_html=True)
+        with col_b:
+            st.markdown(_kpi_card("📦", "총 수량", f"{int(group_df['수량'].sum())}", "var(--success, #059669)"), unsafe_allow_html=True)
+        with col_c:
+            st.markdown(_kpi_card("📷", "사진 보유율", f"{has}/{len(group_df)}", "var(--warning, #D97706)"), unsafe_allow_html=True)
+        st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
 
         variants = group_df["기기명"].unique().tolist()
         if len(variants) > 1:
@@ -298,19 +345,26 @@ def render_tab_compare(df, selected_branches):
 
     compare_df = df[df["지점명"].isin(compare_branches)]
 
-    st.subheader("지점별 카테고리 장비 수량 비교")
+    st.markdown("**지점별 카테고리 장비 수량 비교**")
     grouped = compare_df.groupby(["지점명", "카테고리"])["수량"].sum().reset_index()
     fig_compare = px.bar(
         grouped, x="카테고리", y="수량", color="지점명",
-        barmode="group", color_discrete_sequence=px.colors.qualitative.Set2,
+        barmode="group",
+        color_discrete_sequence=["#2563EB", "#059669", "#D97706", "#DC2626", "#7C3AED", "#0891B2"],
     )
     fig_compare.update_layout(
-        height=450, margin=dict(l=0, r=0, t=10, b=0),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+        height=450, margin=dict(l=10, r=10, t=10, b=10),
+        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(size=12, color="#64748B"),
+        xaxis=dict(gridcolor="#E2E8F0"), yaxis=dict(gridcolor="#E2E8F0"),
+        showlegend=True,
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1,
+                    font=dict(size=11), bgcolor="rgba(0,0,0,0)"),
     )
+    fig_compare.update_traces(marker_cornerradius=4, marker_line_width=0)
     st.plotly_chart(fig_compare, use_container_width=True)
 
-    st.subheader("상세 비교 테이블")
+    st.markdown("**상세 비교 테이블**")
     pivot_compare = compare_df.pivot_table(
         index="지점명", columns="카테고리", values="수량", aggfunc="sum", fill_value=0,
     )
@@ -327,59 +381,87 @@ def render_tab_dashboard(filtered_df):
         st.warning("선택한 조건에 해당하는 장비가 없습니다.")
         return
 
-    col1, col2, col3, col4 = st.columns(4)
     total_qty = int(filtered_df["수량"].sum())
     branch_count = filtered_df["지점명"].nunique()
     cat_count = filtered_df["카테고리"].nunique()
     avg_per_branch = filtered_df.groupby("지점명")["수량"].sum().mean()
 
-    col1.metric("총 장비 수량", f"{total_qty:,}")
-    col2.metric("지점 수", f"{branch_count}")
-    col3.metric("카테고리 수", f"{cat_count}")
-    col4.metric("평균 장비/지점", f"{avg_per_branch:.1f}")
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.markdown(_kpi_card("📦", "총 장비 수량", f"{total_qty:,}", "var(--accent, #2563EB)"), unsafe_allow_html=True)
+    with col2:
+        st.markdown(_kpi_card("🏢", "지점 수", f"{branch_count}", "var(--success, #059669)"), unsafe_allow_html=True)
+    with col3:
+        st.markdown(_kpi_card("📂", "카테고리 수", f"{cat_count}", "var(--warning, #D97706)"), unsafe_allow_html=True)
+    with col4:
+        st.markdown(_kpi_card("📊", "평균 장비/지점", f"{avg_per_branch:.1f}", "#7C3AED"), unsafe_allow_html=True)
+
+    st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
 
     has_photo = len(filtered_df[filtered_df["사진유무"] == "있음"])
     no_photo = len(filtered_df[filtered_df["사진유무"] == "없음"])
     photo_pct = (has_photo / len(filtered_df) * 100) if len(filtered_df) > 0 else 0
 
     col5, col6, col7, col8 = st.columns(4)
-    col5.metric("사진 보유", f"{has_photo}건")
-    col6.metric("사진 미보유", f"{no_photo}건")
-    col7.metric("사진 보유율", f"{photo_pct:.1f}%")
-    col8.metric("고유 장비 종류", f"{filtered_df['장비그룹'].nunique()}")
+    with col5:
+        st.markdown(_kpi_card("✅", "사진 보유", f"{has_photo}건", "var(--success, #059669)"), unsafe_allow_html=True)
+    with col6:
+        st.markdown(_kpi_card("❌", "사진 미보유", f"{no_photo}건", "var(--danger, #DC2626)"), unsafe_allow_html=True)
+    with col7:
+        st.markdown(_kpi_card("📈", "사진 보유율", f"{photo_pct:.1f}%", "var(--accent, #2563EB)"), unsafe_allow_html=True)
+    with col8:
+        st.markdown(_kpi_card("🔬", "고유 장비 종류", f"{filtered_df['장비그룹'].nunique()}", "#0891B2"), unsafe_allow_html=True)
 
     st.divider()
 
     chart_col1, chart_col2 = st.columns(2)
 
+    _chart_layout = dict(
+        showlegend=False, coloraxis_showscale=False,
+        margin=dict(l=10, r=10, t=10, b=10),
+        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(size=12, color="#64748B"),
+        xaxis=dict(gridcolor="#E2E8F0", zerolinecolor="#E2E8F0"),
+        yaxis=dict(gridcolor="#E2E8F0", zerolinecolor="#E2E8F0"),
+    )
+
     with chart_col1:
-        st.subheader("카테고리별 장비 수량")
+        st.markdown("**카테고리별 장비 수량**")
         cat_data = filtered_df.groupby("카테고리")["수량"].sum().sort_values(ascending=True).reset_index()
-        fig_cat = px.bar(cat_data, x="수량", y="카테고리", orientation="h", color="수량", color_continuous_scale="Blues")
-        fig_cat.update_layout(height=400, showlegend=False, coloraxis_showscale=False, margin=dict(l=0, r=0, t=10, b=0))
+        fig_cat = px.bar(cat_data, x="수량", y="카테고리", orientation="h", color="수량",
+                         color_continuous_scale=["#DBEAFE", "#2563EB"])
+        fig_cat.update_layout(height=400, **_chart_layout)
+        fig_cat.update_traces(marker_cornerradius=4, marker_line_width=0)
         st.plotly_chart(fig_cat, use_container_width=True)
 
     with chart_col2:
-        st.subheader("지점별 총 장비 수량 (Top 15)")
+        st.markdown("**지점별 총 장비 수량 (Top 15)**")
         branch_data = filtered_df.groupby("지점명")["수량"].sum().sort_values(ascending=False).head(15).sort_values(ascending=True).reset_index()
-        fig_branch = px.bar(branch_data, x="수량", y="지점명", orientation="h", color="수량", color_continuous_scale="Greens")
-        fig_branch.update_layout(height=400, showlegend=False, coloraxis_showscale=False, margin=dict(l=0, r=0, t=10, b=0))
+        fig_branch = px.bar(branch_data, x="수량", y="지점명", orientation="h", color="수량",
+                            color_continuous_scale=["#D1FAE5", "#059669"])
+        fig_branch.update_layout(height=400, **_chart_layout)
+        fig_branch.update_traces(marker_cornerradius=4, marker_line_width=0)
         st.plotly_chart(fig_branch, use_container_width=True)
 
     chart_col3, chart_col4 = st.columns(2)
 
+    _cat_colors = ["#2563EB", "#059669", "#D97706", "#DC2626", "#7C3AED", "#0891B2", "#DB2777", "#65A30D"]
+
     with chart_col3:
-        st.subheader("카테고리 분포")
+        st.markdown("**카테고리 분포**")
         pie_data = filtered_df.groupby("카테고리")["수량"].sum().reset_index()
-        fig_pie = px.pie(pie_data, values="수량", names="카테고리", hole=0.4, color_discrete_sequence=px.colors.qualitative.Set2)
-        fig_pie.update_layout(height=400, margin=dict(l=0, r=0, t=10, b=0))
+        fig_pie = px.pie(pie_data, values="수량", names="카테고리", hole=0.4,
+                         color_discrete_sequence=_cat_colors)
+        fig_pie.update_layout(height=400, margin=dict(l=0, r=0, t=10, b=0),
+                              paper_bgcolor="rgba(0,0,0,0)", font=dict(size=12, color="#64748B"))
         st.plotly_chart(fig_pie, use_container_width=True)
 
     with chart_col4:
-        st.subheader("지점 x 카테고리 히트맵")
+        st.markdown("**지점 × 카테고리 히트맵**")
         pivot = filtered_df.pivot_table(index="지점명", columns="카테고리", values="수량", aggfunc="sum", fill_value=0)
-        fig_heat = px.imshow(pivot, color_continuous_scale="YlOrRd", aspect="auto")
-        fig_heat.update_layout(height=max(400, len(pivot) * 18), margin=dict(l=0, r=0, t=10, b=0))
+        fig_heat = px.imshow(pivot, color_continuous_scale=["#EFF6FF", "#2563EB"], aspect="auto")
+        fig_heat.update_layout(height=max(400, len(pivot) * 18), margin=dict(l=0, r=0, t=10, b=0),
+                               paper_bgcolor="rgba(0,0,0,0)", font=dict(size=11, color="#64748B"))
         st.plotly_chart(fig_heat, use_container_width=True)
 
 
