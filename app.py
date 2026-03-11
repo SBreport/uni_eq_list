@@ -88,8 +88,7 @@ html.dark-theme {
 [data-testid="stToolbar"] > div > div:last-child { display: none !important; }
 .block-container { padding-top: 1rem !important; padding-bottom: 0 !important; }
 
-/* sticky 탭을 위한 overflow 해제 */
-[data-testid="stMain"],
+/* sticky 탭을 위한 overflow 해제 (stMain은 스크롤 컨테이너이므로 제외) */
 [data-testid="stMainBlockContainer"],
 [data-testid="stVerticalBlockBorderWrapper"],
 .main .block-container {

@@ -70,34 +70,44 @@ def render_tab_equipment_list(filtered_df, df, selected_branches, permissions):
         grid_df[["순번", "지점명", "기기명", "카테고리", "사진", "수량", "비고"]]
     )
 
-    # 공통: 열별 정렬/너비 설정
+    # 공통: 열별 정렬/너비/필터 설정
     gb.configure_column("순번", header_name="No", width=60,
+                        filter="agNumberColumnFilter",
                         cellStyle={"textAlign": "center"},
                         headerClass="ag-center-header")
     gb.configure_column("지점명", width=80,
+                        filter="agTextColumnFilter",
                         cellStyle={"textAlign": "center"},
                         headerClass="ag-center-header")
-    gb.configure_column("기기명", width=200, flex=2)
+    gb.configure_column("기기명", width=200, flex=2,
+                        filter="agTextColumnFilter")
     gb.configure_column("카테고리", width=90,
+                        filter="agTextColumnFilter",
                         cellStyle={"textAlign": "center"},
                         headerClass="ag-center-header")
     gb.configure_column("수량", width=60,
+                        filter="agNumberColumnFilter",
                         cellStyle={"textAlign": "center"},
                         headerClass="ag-center-header")
-    gb.configure_column("비고", width=150, flex=1)
+    gb.configure_column("비고", width=150, flex=1,
+                        filter="agTextColumnFilter")
 
     if can_edit:
         gb.configure_column("사진", header_name="사진", width=70, editable=True,
                             cellRenderer="agCheckboxCellRenderer",
                             cellEditor="agCheckboxCellEditor",
+                            filter=False,
                             cellStyle={"textAlign": "center"},
                             headerClass="ag-center-header")
     else:
         gb.configure_column("사진", width=70,
+                            filter="agTextColumnFilter",
                             cellStyle={"textAlign": "center"},
                             headerClass="ag-center-header")
 
-    gb.configure_default_column(sortable=True, filterable=False, resizable=True)
+    gb.configure_default_column(
+        sortable=True, filter=True, resizable=True,
+    )
     gb.configure_grid_options(
         domLayout="normal",
         rowHeight=28,
