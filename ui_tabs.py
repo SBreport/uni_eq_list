@@ -96,7 +96,7 @@ def render_tab_equipment_list(filtered_df, df, selected_branches, permissions):
         gb.configure_column("사진", header_name="사진", width=70, editable=True,
                             cellRenderer="agCheckboxCellRenderer",
                             cellEditor="agCheckboxCellEditor",
-                            filter=False,
+                            filter=True,
                             cellStyle={"textAlign": "center"},
                             headerClass="ag-center-header")
     else:

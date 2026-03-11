@@ -467,14 +467,6 @@ with st.sidebar:
     st.markdown('<div class="filter-label">장비 검색</div>', unsafe_allow_html=True)
     search_query = st.text_input("장비 검색", placeholder="장비명 입력", label_visibility="collapsed")
 
-    st.markdown('<div class="filter-label">사진 필터</div>', unsafe_allow_html=True)
-    photo_filter = st.radio(
-        "사진 필터",
-        options=["전체", "사진 없음만", "사진 있음만"],
-        horizontal=False,
-        label_visibility="collapsed",
-    )
-
     st.markdown('</div>', unsafe_allow_html=True)
 
     st.markdown("<div style='height:0.3rem'></div>", unsafe_allow_html=True)
@@ -512,7 +504,7 @@ with st.sidebar:
 # ============================================================
 # 필터 적용
 # ============================================================
-filtered_df = apply_filters(df, selected_branches, selected_categories, search_query, photo_filter)
+filtered_df = apply_filters(df, selected_branches, selected_categories, search_query, "전체")
 
 # ============================================================
 # 탭
