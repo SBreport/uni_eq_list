@@ -141,10 +141,10 @@ components.html("""
     btn.style.borderColor = d ? '#3A3A5A' : '#D0D0D0';
     btn.style.color = d ? '#FFF' : '#000';
   }
-  btn.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:999999;'
-    + 'font-size:22px;border:1px solid;border-radius:50%;width:44px;height:44px;'
+  btn.style.cssText = 'position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:999999;'
+    + 'font-size:18px;border:1px solid;border-radius:8px 0 0 8px;width:32px;height:48px;'
     + 'display:flex;align-items:center;justify-content:center;cursor:pointer;'
-    + 'box-shadow:0 2px 8px rgba(0,0,0,.25);transition:background .2s,color .2s;';
+    + 'box-shadow:-2px 0 6px rgba(0,0,0,.2);transition:background .2s,color .2s;';
   applyBtnStyle();
 
   btn.addEventListener('click', function() {
