@@ -1,0 +1,409 @@
+{
+  "tabs": [
+    {
+      "title": "지점 목차",
+      "gid": 1544651920
+    },
+    {
+      "title": "파일생성목록",
+      "gid": 1087401206
+    },
+    {
+      "title": "raw",
+      "gid": 1543424723
+    },
+    {
+      "title": "강남점",
+      "gid": 788918293
+    },
+    {
+      "title": "광교점",
+      "gid": 1524194568
+    },
+    {
+      "title": "과천점",
+      "gid": 833650198
+    },
+    {
+      "title": "광명점",
+      "gid": 1515260857
+    },
+    {
+      "title": "광주점",
+      "gid": 544683246
+    },
+    {
+      "title": "건대점",
+      "gid": 115107992
+    },
+    {
+      "title": "경기광주",
+      "gid": 369371828
+    },
+    {
+      "title": "구로점",
+      "gid": 182531057
+    },
+    {
+      "title": "김포점",
+      "gid": 220388106
+    },
+    {
+      "title": "다산점",
+      "gid": 1102969138
+    },
+    {
+      "title": "대구점",
+      "gid": 1973988987
+    },
+    {
+      "title": "대전점",
+      "gid": 1747422045
+    },
+    {
+      "title": "동탄점",
+      "gid": 1751255758
+    },
+    {
+      "title": "마곡점",
+      "gid": 1787338896
+    },
+    {
+      "title": "명동점",
+      "gid": 1016643158
+    },
+    {
+      "title": "목동점",
+      "gid": 1011652024
+    },
+    {
+      "title": "목포점",
+      "gid": 1235079765
+    },
+    {
+      "title": "부산점",
+      "gid": 233596991
+    },
+    {
+      "title": "부천점",
+      "gid": 1284948054
+    },
+    {
+      "title": "부평점",
+      "gid": 611945518
+    },
+    {
+      "title": "분당미금점",
+      "gid": 1158735655
+    },
+    {
+      "title": "산본점",
+      "gid": 868223062
+    },
+    {
+      "title": "선릉점",
+      "gid": 1157217869
+    },
+    {
+      "title": "수원점",
+      "gid": 1352352392
+    },
+    {
+      "title": "시흥배곧점",
+      "gid": 1039292142
+    },
+    {
+      "title": "안양점",
+      "gid": 782723724
+    },
+    {
+      "title": "왕십리점",
+      "gid": 776507552
+    },
+    {
+      "title": "여의도점",
+      "gid": 1453248084
+    },
+    {
+      "title": "영등포점",
+      "gid": 1402632570
+    },
+    {
+      "title": "의정부점",
+      "gid": 495852582
+    },
+    {
+      "title": "인천검단점",
+      "gid": 1001564641
+    },
+    {
+      "title": "안산점",
+      "gid": 1918699913
+    },
+    {
+      "title": "일산점",
+      "gid": 1641289775
+    },
+    {
+      "title": "잠실점",
+      "gid": 1077918403
+    },
+    {
+      "title": "창동점",
+      "gid": 2108590337
+    },
+    {
+      "title": "창원점",
+      "gid": 492189477
+    },
+    {
+      "title": "천안점",
+      "gid": 1480365165
+    },
+    {
+      "title": "천호점",
+      "gid": 285227615
+    },
+    {
+      "title": "판교점",
+      "gid": 431098510
+    },
+    {
+      "title": "평택점",
+      "gid": 812415446
+    },
+    {
+      "title": "홍대점",
+      "gid": 689680294
+    },
+    {
+      "title": "하남미사점",
+      "gid": 1030276648
+    },
+    {
+      "title": "화성봉담점",
+      "gid": 767569103
+    }
+  ],
+  "branch_sources": {
+    "파일생성목록": {
+      "a1_value": "순번",
+      "note": "not IMPORTRANGE"
+    },
+    "강남점": {
+      "spreadsheet_id": "11LaEGLpmnr25aYhM36uYqwdK-6LcmGGA1lMv5R5y1Qw",
+      "source_tab": "Copy of 강남점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/11LaEGLpmnr25aYhM36uYqwdK-6LcmGGA1lMv5R5y1Qw/edit\", \"'Copy of 강남점'!A1:Z\")"
+    },
+    "광교점": {
+      "spreadsheet_id": "14eNtLuwweCFfiQfJpCeRcyhHYbzJrb6esu7R9LEWg1M",
+      "source_tab": "Copy of 광교점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/14eNtLuwweCFfiQfJpCeRcyhHYbzJrb6esu7R9LEWg1M/edit\", \"'Copy of 광교점'!A1:Z\")"
+    },
+    "과천점": {
+      "spreadsheet_id": "1eqKaqPIG6FumrsW_deoeHGFhCF5-PwYEc3CrI8NGfY8",
+      "source_tab": "Copy of 과천점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1eqKaqPIG6FumrsW_deoeHGFhCF5-PwYEc3CrI8NGfY8/edit\", \"'Copy of 과천점'!A1:Z\")"
+    },
+    "광명점": {
+      "spreadsheet_id": "1esIUwZ-30-6t5ApHB2fiaj5HL11tItUS0jMhgA850TQ",
+      "source_tab": "Copy of 광명점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1esIUwZ-30-6t5ApHB2fiaj5HL11tItUS0jMhgA850TQ/edit\", \"'Copy of 광명점'!A1:Z\")"
+    },
+    "광주점": {
+      "spreadsheet_id": "198Gm1JLIGYEXkJsBqkEFGDZ8yBF0q8je9bQH8iDbgio",
+      "source_tab": "Copy of 광주점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/198Gm1JLIGYEXkJsBqkEFGDZ8yBF0q8je9bQH8iDbgio/edit?gid=718081610#gid=718081610\", \"'Copy of 광주점'!A1:Z\")"
+    },
+    "건대점": {
+      "spreadsheet_id": "1WQw9gIzhctmBRRkTYX3-IsZKffhGuVqPqZAUiQfvy8g",
+      "source_tab": "Copy of 건대점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1WQw9gIzhctmBRRkTYX3-IsZKffhGuVqPqZAUiQfvy8g/edit\", \"'Copy of 건대점'!A1:Z\")"
+    },
+    "경기광주": {
+      "spreadsheet_id": "1DGgUzmr3-N3uOE_F8UnFGxu7MzWfHcllfKZXoGB-XzI",
+      "source_tab": "Copy of 경기광주점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1DGgUzmr3-N3uOE_F8UnFGxu7MzWfHcllfKZXoGB-XzI/edit?gid=816513251#gid=816513251\", \"'Copy of 경기광주점'!A1:Z\")"
+    },
+    "구로점": {
+      "spreadsheet_id": "1m-gEwUG4Ho0_3RzWufJHmYgog6MnaIFRRHtegQrNwho",
+      "source_tab": "Copy of 구로점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1m-gEwUG4Ho0_3RzWufJHmYgog6MnaIFRRHtegQrNwho/edit\", \"'Copy of 구로점'!A1:Z\")"
+    },
+    "김포점": {
+      "spreadsheet_id": "1o3uDGIAkPWMlSE5XNLdy3IflEoPDLKourrBr6YufocY",
+      "source_tab": "Copy of 김포점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1o3uDGIAkPWMlSE5XNLdy3IflEoPDLKourrBr6YufocY/edit\", \"'Copy of 김포점'!A1:Z\")"
+    },
+    "다산점": {
+      "spreadsheet_id": "1ZJHpDlxFnRlzu_V-Uio028a-hzWdudDm8O-OuS2CImU",
+      "source_tab": "Copy of 다산점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1ZJHpDlxFnRlzu_V-Uio028a-hzWdudDm8O-OuS2CImU/edit\", \"'Copy of 다산점'!A1:Z\")"
+    },
+    "대구점": {
+      "spreadsheet_id": "1KSaoXuNzTVGt-Yc4EsTinYLX4AkIKmY9WBCliYui2SU",
+      "source_tab": "Copy of 대구점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1KSaoXuNzTVGt-Yc4EsTinYLX4AkIKmY9WBCliYui2SU/edit\", \"'Copy of 대구점'!A1:Z\")"
+    },
+    "대전점": {
+      "spreadsheet_id": "1zscNks8EcBAm0b9NNfZS6zb3GfBxB7M5vwbI62onibs",
+      "source_tab": "Copy of 대전점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1zscNks8EcBAm0b9NNfZS6zb3GfBxB7M5vwbI62onibs/edit\", \"'Copy of 대전점'!A1:Z\")"
+    },
+    "동탄점": {
+      "spreadsheet_id": "1GuB91Rf0NVWfYO_X8a8z3i7NIwxM2FfljTTvEvobiRQ",
+      "source_tab": "Copy of 동탄점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1GuB91Rf0NVWfYO_X8a8z3i7NIwxM2FfljTTvEvobiRQ/edit\", \"'Copy of 동탄점'!A1:Z\")"
+    },
+    "마곡점": {
+      "spreadsheet_id": "15hbbzpWZCp1mRvSUg7x5BbGw7nBjXYeAoV1DyNx9eMM",
+      "source_tab": "Copy of 마곡점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/15hbbzpWZCp1mRvSUg7x5BbGw7nBjXYeAoV1DyNx9eMM/edit\", \"'Copy of 마곡점'!A1:Z\")"
+    },
+    "명동점": {
+      "spreadsheet_id": "1AdetxaHIQkZu599iJAp_ebRTv6BnJLXxSmmOD_ou6Dk",
+      "source_tab": "Copy of 명동점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1AdetxaHIQkZu599iJAp_ebRTv6BnJLXxSmmOD_ou6Dk/edit\", \"'Copy of 명동점'!A1:Z\")"
+    },
+    "목동점": {
+      "spreadsheet_id": "1vLp44MaJrUeefDfTJcxfV0nUyqUXPJuJN-U1SgJ_18g",
+      "source_tab": "Copy of 목동점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1vLp44MaJrUeefDfTJcxfV0nUyqUXPJuJN-U1SgJ_18g/edit\", \"'Copy of 목동점'!A1:Z\")"
+    },
+    "목포점": {
+      "spreadsheet_id": "1hOgYmFpMJZeoWVm4Xcrx6n_xIAz35mmNgOQgowiPoqc",
+      "source_tab": "Copy of 목포점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1hOgYmFpMJZeoWVm4Xcrx6n_xIAz35mmNgOQgowiPoqc/edit\", \"'Copy of 목포점'!A1:Z\")"
+    },
+    "부산점": {
+      "spreadsheet_id": "1SI2B7nCrjk_SrGQu4OlglGUmR1NLdPuN5epwQu1VHP4",
+      "source_tab": "Copy of 부산점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1SI2B7nCrjk_SrGQu4OlglGUmR1NLdPuN5epwQu1VHP4/edit\", \"'Copy of 부산점'!A1:Z\")"
+    },
+    "부천점": {
+      "spreadsheet_id": "1cDFtMCebkV8mdnZfqtZKws4nkVt7F-IqtKXwDbDrvCg",
+      "source_tab": "Copy of 부천점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1cDFtMCebkV8mdnZfqtZKws4nkVt7F-IqtKXwDbDrvCg/edit\", \"'Copy of 부천점'!A1:Z\")"
+    },
+    "부평점": {
+      "spreadsheet_id": "1ap5XEX7jCX_0_P8_REBlUe7en4ZDcT87ASX8xwAtxME",
+      "source_tab": "Copy of 부평점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1ap5XEX7jCX_0_P8_REBlUe7en4ZDcT87ASX8xwAtxME/edit\", \"'Copy of 부평점'!A1:Z\")"
+    },
+    "분당미금점": {
+      "spreadsheet_id": "1WHsrH7ixM5tb2-NNHa0nu99zAUpbNjqJ6SFNm16DVCQ",
+      "source_tab": "Copy of 분당미금점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1WHsrH7ixM5tb2-NNHa0nu99zAUpbNjqJ6SFNm16DVCQ/edit\", \"'Copy of 분당미금점'!A1:Z\")"
+    },
+    "산본점": {
+      "spreadsheet_id": "1pntDLDGuBerFaPEf-aohg371JrVtRKLKPXWH0b8lkgw",
+      "source_tab": "Copy of 산본점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1pntDLDGuBerFaPEf-aohg371JrVtRKLKPXWH0b8lkgw/edit\", \"'Copy of 산본점'!A1:Z\")"
+    },
+    "선릉점": {
+      "spreadsheet_id": "17lItucCS1f4NwK9jAl7negCN6TFZd9418jAlt2kcC9w",
+      "source_tab": "Copy of 선릉점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/17lItucCS1f4NwK9jAl7negCN6TFZd9418jAlt2kcC9w/edit\", \"'Copy of 선릉점'!A1:Z\")"
+    },
+    "수원점": {
+      "spreadsheet_id": "1VXJbjs1iQa3kY_JGBQy_tx3N9V3jVJHDveww67mGvpk",
+      "source_tab": "Copy of 수원점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1VXJbjs1iQa3kY_JGBQy_tx3N9V3jVJHDveww67mGvpk/edit\", \"'Copy of 수원점'!A1:Z\")"
+    },
+    "시흥배곧점": {
+      "spreadsheet_id": "1B_qbfPYocgQE8X7tpUz8wrrSexP1Hh4HSed4ydRnlL0",
+      "source_tab": "Copy of 시흥배곧점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1B_qbfPYocgQE8X7tpUz8wrrSexP1Hh4HSed4ydRnlL0/edit\", \"'Copy of 시흥배곧점'!A1:Z\")"
+    },
+    "안양점": {
+      "spreadsheet_id": "1YgiNqj9YgeBq05QGio9e6RzFScGnbD_DTpY_UxJ6-7c",
+      "source_tab": "Copy of 안양점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1YgiNqj9YgeBq05QGio9e6RzFScGnbD_DTpY_UxJ6-7c/edit\", \"'Copy of 안양점'!A1:Z\")"
+    },
+    "왕십리점": {
+      "spreadsheet_id": "1ItlGIJZp8NrSUx0_Sgrap0AVrne27SKw_wH18kBDF_M",
+      "source_tab": "Copy of 왕십리점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1ItlGIJZp8NrSUx0_Sgrap0AVrne27SKw_wH18kBDF_M/edit\", \"'Copy of 왕십리점'!A1:Z\")"
+    },
+    "여의도점": {
+      "spreadsheet_id": "1-iUQl4Cg8_NOYSSzcBYvt6EpXMcnZpHk_jPa5H8hB1Y",
+      "source_tab": "Copy of 여의도점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1-iUQl4Cg8_NOYSSzcBYvt6EpXMcnZpHk_jPa5H8hB1Y/edit\", \"'Copy of 여의도점'!A1:Z\")"
+    },
+    "영등포점": {
+      "spreadsheet_id": "16RGhMGzPJgHFK9D_1fQr1Bv6N9x0O_wu41298NcizyI",
+      "source_tab": "Copy of 영등포점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/16RGhMGzPJgHFK9D_1fQr1Bv6N9x0O_wu41298NcizyI/edit\", \"'Copy of 영등포점'!A1:Z\")"
+    },
+    "의정부점": {
+      "spreadsheet_id": "1K55KMMumeGTaa4Ol9Q_q-9B1Qn0D5lTY7ig1lmXoIUg",
+      "source_tab": "Copy of 의정부점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1K55KMMumeGTaa4Ol9Q_q-9B1Qn0D5lTY7ig1lmXoIUg/edit\", \"'Copy of 의정부점'!A1:Z\")"
+    },
+    "인천검단점": {
+      "spreadsheet_id": "1i_VWRrk_KClqmMxBBVAzeD-Y9bFJZwEkXY6Vz0c7Pv4",
+      "source_tab": "Copy of 인천검단점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1i_VWRrk_KClqmMxBBVAzeD-Y9bFJZwEkXY6Vz0c7Pv4/edit\", \"'Copy of 인천검단점'!A1:Z\")"
+    },
+    "안산점": {
+      "spreadsheet_id": "1IL-Q4KC0heJ2PvD40TGTN-BsUUZ9veKfrZWQjCKXiec",
+      "source_tab": "Copy of 안산점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1IL-Q4KC0heJ2PvD40TGTN-BsUUZ9veKfrZWQjCKXiec/edit\", \"'Copy of 안산점'!A1:Z\")"
+    },
+    "일산점": {
+      "spreadsheet_id": "1n7wv_8WWOzjdxAfjBwvURMZxPnvzyPPtMMT-g68n3NE",
+      "source_tab": "Copy of 일산점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1n7wv_8WWOzjdxAfjBwvURMZxPnvzyPPtMMT-g68n3NE/edit\", \"'Copy of 일산점'!A1:Z\")"
+    },
+    "잠실점": {
+      "spreadsheet_id": "13J4fBmIKNoVFY4iSKpgAk8jb9dASzP23kdsekTMlmLo",
+      "source_tab": "Copy of 잠실점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/13J4fBmIKNoVFY4iSKpgAk8jb9dASzP23kdsekTMlmLo/edit\", \"'Copy of 잠실점'!A1:Z\")"
+    },
+    "창동점": {
+      "spreadsheet_id": "1D9FIi0eYSZi66yA4BmMKQl1IkBplC5EMkayRjDQzH0c",
+      "source_tab": "Copy of 창동점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1D9FIi0eYSZi66yA4BmMKQl1IkBplC5EMkayRjDQzH0c/edit\", \"'Copy of 창동점'!A1:Z\")"
+    },
+    "창원점": {
+      "spreadsheet_id": "1f2nMpEgkAEkaAvYzEw_TOiOurq6R19ImUZ4St3cEX8k",
+      "source_tab": "Copy of 창원점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1f2nMpEgkAEkaAvYzEw_TOiOurq6R19ImUZ4St3cEX8k/edit\", \"'Copy of 창원점'!A1:Z\")"
+    },
+    "천안점": {
+      "spreadsheet_id": "14JZdqwHyu2KanT2zP9fQUk9ns1fjWON2-4OZ6vH21YA",
+      "source_tab": "Copy of 천안점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/14JZdqwHyu2KanT2zP9fQUk9ns1fjWON2-4OZ6vH21YA/edit\", \"'Copy of 천안점'!A1:Z\")"
+    },
+    "천호점": {
+      "spreadsheet_id": "1SiwmQ6rmdQa2wSl7bfL4ZZZlwHy5NYYqpMtAo01OwFQ",
+      "source_tab": "Copy of 천호점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1SiwmQ6rmdQa2wSl7bfL4ZZZlwHy5NYYqpMtAo01OwFQ/edit\", \"'Copy of 천호점'!A1:Z\")"
+    },
+    "판교점": {
+      "spreadsheet_id": "1yi5VaRsxUnv4Twfh8rXJHCTnuNf1CDYi9kXBMz7nBuw",
+      "source_tab": "Copy of 판교점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1yi5VaRsxUnv4Twfh8rXJHCTnuNf1CDYi9kXBMz7nBuw/edit\", \"'Copy of 판교점'!A1:Z\")"
+    },
+    "평택점": {
+      "spreadsheet_id": "1yZxTTn9-zi4IPL2j5Nke-peCRq6nlZSYocI_V-mAgS8",
+      "source_tab": "Copy of 평택점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1yZxTTn9-zi4IPL2j5Nke-peCRq6nlZSYocI_V-mAgS8/edit\", \"'Copy of 평택점'!A1:Z\")"
+    },
+    "홍대점": {
+      "spreadsheet_id": "1ZRhdIGgWqB2bSHjQEqxgiegY2JaiGmG78xYY41WP4KA",
+      "source_tab": "Copy of 홍대점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1ZRhdIGgWqB2bSHjQEqxgiegY2JaiGmG78xYY41WP4KA/edit\", \"'Copy of 홍대점'!A1:Z\")"
+    },
+    "하남미사점": {
+      "spreadsheet_id": "1b2B6LBhFZO5qrZEFC1VeKNs20ii78qBmwTx84n-yYJQ",
+      "source_tab": "Copy of 하남미사점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/1b2B6LBhFZO5qrZEFC1VeKNs20ii78qBmwTx84n-yYJQ/edit\", \"'Copy of 하남미사점'!A1:Z\")"
+    },
+    "화성봉담점": {
+      "spreadsheet_id": "18kFae6kYkk79eAHpKYsgQu1Q5QbaKzdV5azcVV4HzMQ",
+      "source_tab": "Copy of 화성봉담점",
+      "formula": "=IMPORTRANGE(\"https://docs.google.com/spreadsheets/d/18kFae6kYkk79eAHpKYsgQu1Q5QbaKzdV5azcVV4HzMQ/edit\", \"'Copy of 화성봉담점'!A1:Z\")"
+    }
+  }
+}
